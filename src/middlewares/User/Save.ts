@@ -1,19 +1,21 @@
-const bcrypt = require("bcrypt");
+/**
+ *  import modules
+ */
+import bcrypt from "bcrypt";
 import User from "../../model/User";
 
-/****************************/
-//
-//      USER SAVE
-//
-/****************************/
+/**
+ * 
+ * Middleware User Save
+ * Middle to save user
+ * 
+ */
 export default async (req, res, next) => {
     const { Name, Email, Password, } = req.fields;
 
-    
     const resultUser = await User.count({ where: { Email: Email }});                
     if(resultUser !== 0)
     return res.status(400).send({status:"error", message:"User already exists (Email)", data:{}});
-    
     
     if(!Name)
     return res.status(400).send({status:"error", message:"Name is required", data:{}});

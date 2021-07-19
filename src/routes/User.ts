@@ -42,5 +42,4 @@ routes.get("/list",     [ AuthToken, UserListMid ],    UserListController);
 routes.get("/list/:id", [ AuthToken, UserListOneMid ], UserListOneController);
 routes.get("/search",   [ AuthToken, UserSearchMid ],  UserSearchController);
 
-
 export default routes;

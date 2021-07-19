@@ -1,11 +1,9 @@
-// const bcrypt = require("bcrypt");
-// import User from "../../models/UserModel";
-
-/****************************/
-//
-//      USER LIST ONE
-//
-/****************************/
+/**
+ * 
+ * Middleware User List One
+ * Middle to list one user
+ * 
+ */
 export default async (req, res, next) => {
     const { id } = req.params;
 

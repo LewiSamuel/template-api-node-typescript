@@ -1,14 +1,18 @@
+/**
+ * Import modules
+ */
 import User from "../../model/User";
-const { Op } = require("sequelize");
+import { Op } from "sequelize";
 
 export default async (req, res, next) => {
 
-    /****************************/
-    //
-    //      USER SEARCH
-    //
-    /****************************/
-    
+    /**
+     * 
+     * Middleware User Search
+     * Middle to search user
+     * 
+     */
+
     // SETTINGS OF PAGINATION
     const { page, pageSize, gte, lte, gt, lt, labelDate } = req.fields;
     const DEFAULT_PAGE_SIZE = 10;

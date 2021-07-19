@@ -1,17 +1,20 @@
-const bcrypt = require("bcrypt");
+/**
+ * Import modules
+ */
+import bcrypt from "bcrypt";
 import User from "../../model/User";
 
-/****************************/
-//
-//      USER UPDATE
-//
-/****************************/
+/**
+ * 
+ * Middleware User Update
+ * Middle to update user
+ * 
+ */
 export default async (req, res, next) => {
     const { id } = req.fields;
     
     if(!id)
     return res.status(400).send({status:"error", message:"id is required", data:{}});
-    
     
     if(req.fields.Email){
         const resultUser = await User.count({ where: { Email: req.fields.Email }});
@@ -19,7 +22,6 @@ export default async (req, res, next) => {
         if(resultUser !== 0)
         return res.status(400).send({status:"error", message:"User already exists (Email)", data:{}});
     }
-    
 
     // criptography password
     if(req.fields.Password)
